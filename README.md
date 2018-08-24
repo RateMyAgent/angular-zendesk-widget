@@ -3,6 +3,16 @@ Angular 1.x wrapper for the [Zendesk Web Widget](https://support.zendesk.com/hc/
 
 For Angular 2/4+, please see https://github.com/AlisonVilela/ngx-zendesk-webwidget.
 
+## WHY DID WE FORK THIS?
+
+This repo has been forked to not `require('angular')` which was causing us issues of angular being pulled in twice into our bundle. It now uses `window.angular` instead. 
+
+It also now does the following in [angular-zendesk-widget.js](./dist/angular-zendesk-widget.js): 
+
+```js
+export default angular.module('zendeskWidget').name;
+```
+
 ## Installation
 Via bower:
 ```bash
