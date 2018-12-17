@@ -37,13 +37,15 @@ angular.module('myApp', ['zendeskWidget'])
     });
   }]);
 ```
-Then simply inject the `ZendeskWidget` service and use it to call any of the [Web Widget API methods](https://developer.zendesk.com/embeddables/docs/widget/api):
+Then simply inject the `ZendeskWidget` service, call `loadWidget()` and then use it to call any of the [Web Widget API methods](https://developer.zendesk.com/embeddables/docs/widget/api):
 
 JavaScript:
 ```js
 angular.module('myApp')
   .controller('MyAppCtrl', ['ZendeskWidget', function(ZendeskWidget) {
 	  $scope.doCustomWidgetStuff = function() {
+        ZendeskWidget.loadWidget();
+
         ZendeskWidget.identify({
           name: $scope.currentUser.displayName,
           email: $scope.currentUser.email,
